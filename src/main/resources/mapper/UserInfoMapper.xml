@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quwan.basic.dao.UserInfoDao" >
+  <resultMap id="BaseResultMap" type="com.quwan.basic.entity.UserInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="SMALLINT" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="profession" property="profession" jdbcType="VARCHAR" />
+    <result column="income" property="income" jdbcType="DECIMAL" />
+    <result column="academic" property="academic" jdbcType="VARCHAR" />
+    <result column="finish_school" property="finishSchool" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="car_info" property="carInfo" jdbcType="BIT" />
+    <result column="car_model" property="carModel" jdbcType="VARCHAR" />
+    <result column="house_info" property="houseInfo" jdbcType="BIT" />
+    <result column="house_location" property="houseLocation" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, mobile, name, sex, birthday, profession, income, academic, finish_school, 
+    address, car_info, car_model, house_info, house_location, create_time, update_time
+  </sql>
+  <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  -->
+
+<!--  <select id="selectByUserIdOrDeviceNum" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from user_info
+    where user_id = #{userId}
+  </select>-->
+
+  <!--
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.quwan.basic.entity.UserInfo" >
+    insert into user_info (id, user_id, mobile, 
+      name, sex, birthday, 
+      profession, income, academic, 
+      finish_school, address, car_info, 
+      car_model, house_info, house_location, 
+      create_time, update_time)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{sex,jdbcType=SMALLINT}, #{birthday,jdbcType=VARCHAR}, 
+      #{profession,jdbcType=VARCHAR}, #{income,jdbcType=DECIMAL}, #{academic,jdbcType=VARCHAR}, 
+      #{finishSchool,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{carInfo,jdbcType=BIT}, 
+      #{carModel,jdbcType=VARCHAR}, #{houseInfo,jdbcType=BIT}, #{houseLocation,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.quwan.basic.entity.UserInfo" >
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="profession != null" >
+        profession,
+      </if>
+      <if test="income != null" >
+        income,
+      </if>
+      <if test="academic != null" >
+        academic,
+      </if>
+      <if test="finishSchool != null" >
+        finish_school,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="carInfo != null" >
+        car_info,
+      </if>
+      <if test="carModel != null" >
+        car_model,
+      </if>
+      <if test="houseInfo != null" >
+        house_info,
+      </if>
+      <if test="houseLocation != null" >
+        house_location,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=SMALLINT},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null" >
+        #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null" >
+        #{income,jdbcType=DECIMAL},
+      </if>
+      <if test="academic != null" >
+        #{academic,jdbcType=VARCHAR},
+      </if>
+      <if test="finishSchool != null" >
+        #{finishSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="carInfo != null" >
+        #{carInfo,jdbcType=BIT},
+      </if>
+      <if test="carModel != null" >
+        #{carModel,jdbcType=VARCHAR},
+      </if>
+      <if test="houseInfo != null" >
+        #{houseInfo,jdbcType=BIT},
+      </if>
+      <if test="houseLocation != null" >
+        #{houseLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.quwan.basic.entity.UserInfo" >
+    update user_info
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=SMALLINT},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null" >
+        profession = #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null" >
+        income = #{income,jdbcType=DECIMAL},
+      </if>
+      <if test="academic != null" >
+        academic = #{academic,jdbcType=VARCHAR},
+      </if>
+      <if test="finishSchool != null" >
+        finish_school = #{finishSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="carInfo != null" >
+        car_info = #{carInfo,jdbcType=BIT},
+      </if>
+      <if test="carModel != null" >
+        car_model = #{carModel,jdbcType=VARCHAR},
+      </if>
+      <if test="houseInfo != null" >
+        house_info = #{houseInfo,jdbcType=BIT},
+      </if>
+      <if test="houseLocation != null" >
+        house_location = #{houseLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.quwan.basic.entity.UserInfo" >
+    update user_info
+    set user_id = #{userId,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=SMALLINT},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      profession = #{profession,jdbcType=VARCHAR},
+      income = #{income,jdbcType=DECIMAL},
+      academic = #{academic,jdbcType=VARCHAR},
+      finish_school = #{finishSchool,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      car_info = #{carInfo,jdbcType=BIT},
+      car_model = #{carModel,jdbcType=VARCHAR},
+      house_info = #{houseInfo,jdbcType=BIT},
+      house_location = #{houseLocation,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+-->
+</mapper>

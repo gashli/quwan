@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quwan.basic.dao.QuwanInfoDao" >
+  <resultMap id="BaseResultMap" type="com.quwan.basic.entity.QuwanInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="quwan_time" property="quwanTime" jdbcType="TIMESTAMP" />
+    <result column="destination" property="destination" jdbcType="VARCHAR" />
+    <result column="cost_type" property="costType" jdbcType="TINYINT" />
+    <result column="except_cost" property="exceptCost" jdbcType="DECIMAL" />
+    <result column="real_cost" property="realCost" jdbcType="DECIMAL" />
+    <result column="expect_persons" property="expectPersons" jdbcType="SMALLINT" />
+    <result column="quwan_status" property="quwanStatus" jdbcType="TINYINT" />
+    <result column="finish_time" property="finishTime" jdbcType="TIMESTAMP" />
+    <result column="quwan_event_id" property="quwanEventId" jdbcType="BIGINT" />
+    <result column="quwan_group_id" property="quwanGroupId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, title, quwan_time, destination, cost_type, except_cost, real_cost, expect_persons, 
+    quwan_status, finish_time, quwan_event_id, quwan_group_id, create_time, update_time
+  </sql>
+  <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from quwan_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from quwan_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.quwan.basic.entity.QuwanInfo" >
+    insert into quwan_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="quwanTime != null" >
+        quwan_time,
+      </if>
+      <if test="destination != null" >
+        destination,
+      </if>
+      <if test="costType != null" >
+        cost_type,
+      </if>
+      <if test="exceptCost != null" >
+        except_cost,
+      </if>
+      <if test="realCost != null" >
+        real_cost,
+      </if>
+      <if test="expectPersons != null" >
+        expect_persons,
+      </if>
+      <if test="quwanStatus != null" >
+        quwan_status,
+      </if>
+      <if test="finishTime != null" >
+        finish_time,
+      </if>
+      <if test="quwanEventId != null" >
+        quwan_event_id,
+      </if>
+      <if test="quwanGroupId != null" >
+        quwan_group_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="quwanTime != null" >
+        #{quwanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="destination != null" >
+        #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="costType != null" >
+        #{costType,jdbcType=TINYINT},
+      </if>
+      <if test="exceptCost != null" >
+        #{exceptCost,jdbcType=DECIMAL},
+      </if>
+      <if test="realCost != null" >
+        #{realCost,jdbcType=DECIMAL},
+      </if>
+      <if test="expectPersons != null" >
+        #{expectPersons,jdbcType=SMALLINT},
+      </if>
+      <if test="quwanStatus != null" >
+        #{quwanStatus,jdbcType=TINYINT},
+      </if>
+      <if test="finishTime != null" >
+        #{finishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quwanEventId != null" >
+        #{quwanEventId,jdbcType=BIGINT},
+      </if>
+      <if test="quwanGroupId != null" >
+        #{quwanGroupId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.quwan.basic.entity.QuwanInfo" >
+    update quwan_info
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="quwanTime != null" >
+        quwan_time = #{quwanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="destination != null" >
+        destination = #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="costType != null" >
+        cost_type = #{costType,jdbcType=TINYINT},
+      </if>
+      <if test="exceptCost != null" >
+        except_cost = #{exceptCost,jdbcType=DECIMAL},
+      </if>
+      <if test="realCost != null" >
+        real_cost = #{realCost,jdbcType=DECIMAL},
+      </if>
+      <if test="expectPersons != null" >
+        expect_persons = #{expectPersons,jdbcType=SMALLINT},
+      </if>
+      <if test="quwanStatus != null" >
+        quwan_status = #{quwanStatus,jdbcType=TINYINT},
+      </if>
+      <if test="finishTime != null" >
+        finish_time = #{finishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quwanEventId != null" >
+        quwan_event_id = #{quwanEventId,jdbcType=BIGINT},
+      </if>
+      <if test="quwanGroupId != null" >
+        quwan_group_id = #{quwanGroupId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.quwan.basic.entity.QuwanInfo" >
+    update quwan_info
+    set title = #{title,jdbcType=VARCHAR},
+      quwan_time = #{quwanTime,jdbcType=TIMESTAMP},
+      destination = #{destination,jdbcType=VARCHAR},
+      cost_type = #{costType,jdbcType=TINYINT},
+      except_cost = #{exceptCost,jdbcType=DECIMAL},
+      real_cost = #{realCost,jdbcType=DECIMAL},
+      expect_persons = #{expectPersons,jdbcType=SMALLINT},
+      quwan_status = #{quwanStatus,jdbcType=TINYINT},
+      finish_time = #{finishTime,jdbcType=TIMESTAMP},
+      quwan_event_id = #{quwanEventId,jdbcType=BIGINT},
+      quwan_group_id = #{quwanGroupId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+-->
+</mapper>

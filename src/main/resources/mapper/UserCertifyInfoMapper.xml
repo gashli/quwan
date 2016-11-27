@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quwan.basic.dao.UserCertifyInfoDao" >
+  <resultMap id="BaseResultMap" type="com.quwan.basic.entity.UserCertifyInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="certify_id" property="certifyId" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="identity_card" property="identityCard" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="certify_level" property="certifyLevel" jdbcType="TINYINT" />
+    <result column="house_certify" property="houseCertify" jdbcType="VARCHAR" />
+    <result column="car_certify" property="carCertify" jdbcType="VARCHAR" />
+    <result column="credit_id" property="creditId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, certify_id, user_id, user_name, identity_card, mobile, certify_level, house_certify, 
+    car_certify, credit_id, create_time, update_time
+  </sql>
+  <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_certify_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_certify_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.quwan.basic.entity.UserCertifyInfo" >
+    insert into user_certify_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="certifyId != null" >
+        certify_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="identityCard != null" >
+        identity_card,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="certifyLevel != null" >
+        certify_level,
+      </if>
+      <if test="houseCertify != null" >
+        house_certify,
+      </if>
+      <if test="carCertify != null" >
+        car_certify,
+      </if>
+      <if test="creditId != null" >
+        credit_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="certifyId != null" >
+        #{certifyId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="identityCard != null" >
+        #{identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="certifyLevel != null" >
+        #{certifyLevel,jdbcType=TINYINT},
+      </if>
+      <if test="houseCertify != null" >
+        #{houseCertify,jdbcType=VARCHAR},
+      </if>
+      <if test="carCertify != null" >
+        #{carCertify,jdbcType=VARCHAR},
+      </if>
+      <if test="creditId != null" >
+        #{creditId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.quwan.basic.entity.UserCertifyInfo" >
+    update user_certify_info
+    <set >
+      <if test="certifyId != null" >
+        certify_id = #{certifyId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="identityCard != null" >
+        identity_card = #{identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="certifyLevel != null" >
+        certify_level = #{certifyLevel,jdbcType=TINYINT},
+      </if>
+      <if test="houseCertify != null" >
+        house_certify = #{houseCertify,jdbcType=VARCHAR},
+      </if>
+      <if test="carCertify != null" >
+        car_certify = #{carCertify,jdbcType=VARCHAR},
+      </if>
+      <if test="creditId != null" >
+        credit_id = #{creditId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.quwan.basic.entity.UserCertifyInfo" >
+    update user_certify_info
+    set certify_id = #{certifyId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      identity_card = #{identityCard,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      certify_level = #{certifyLevel,jdbcType=TINYINT},
+      house_certify = #{houseCertify,jdbcType=VARCHAR},
+      car_certify = #{carCertify,jdbcType=VARCHAR},
+      credit_id = #{creditId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+-->
+</mapper>

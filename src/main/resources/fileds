@@ -1,0 +1,93 @@
+| -isBargainPrice- | -int- | -区分是否来自特价酒店频道, 1标示是特价酒店频道流量, 否则不是, 则是来自主站的流量- | -&nbsp;- |
+| limit | string  | 分页信息 | 型如0,15&nbsp;&nbsp;&nbsp; index[Mobile:0]分页用的数组下标，而非页码, index[Mobile:1] 截取的数组长度  |
+| distance | int  | 距离筛选 | 默认-1 |
+| fromDate | string  | 入住时间 | 型如：2013-06-18 |
+| toDate | string  | 离店时间 | 型如：2013-06-20 ，*fromDate和toDate的时间间隔限制为90天。*  |
+| -showLmMessage- | -int- | -是否为无线夜销请求？-   {color:#ff0000}{-}带showLmMessage=1就会在list阶段触发抓无线detail的报价（from海波）-{color} | -1代表：是 &nbsp; &nbsp; &nbsp;- {color:#ff0000}-&nbsp;（已作废）-{color}-0代表：否-  |
+| showNonPrice | int | 是否展示无报价的酒店 | -和showFullRoom一起控制出无线报价。- 
+1代表：返回 
+0代表：不返回  |
+| showFullRoom | int  | 是否要满房的酒店 | 1代表：返回 
+0代表：不返回 |
+| showStatic | int | 静态酒店 | 1代表：返回&nbsp; 
+0代表：不返回  |
+| showNPDHotel  | int | 非静态无报价酒店 | 1代表：返回&nbsp; 
+0代表：不返回  |
+| showAreaInfo  | int | 商圈列表  | 1代表：返回&nbsp;&nbsp; 
+0代表：不返回  |
+| attrs | string | 酒店基本信息 | 型如:Dkx-z4hS,TDoolO-H%2CYRHLp-jc,HCEm2cI6,VAuXapLv 
+详见[http://svn.corp.qunar.com/svn/mobile/server/commons/trunk/src/main/java/com/qunar/mobile/commons/constant/HotelDetailAttrs.java] |
+| cityurl | string | 城市标签 | 型如：beiing_city 找wagon.wang |
+| kdh | int | 只显示可订酒店 | 0代表：否 &nbsp;{color:#ff0000}填1{color} |
+| requestor | string | 标识请求来源 | requestor=RT_WAP, RT_OTHER |
+| isvipuser | int | 红包用户 | {color:#ff0000}&nbsp;填0{color} |
+| isLM  | int | 是否是夜宵频道 | 1夜宵频道, {color:#ff0000}0{color} |
+| p0 | int | 价格区间下限 | |
+| p1 | int | 价格区间上限 | |
+| levels | string  | 星级档次 | TODO 添加详细说明  |
+| sort | string  | 排序字段 | 不要填 默认使用综合排序 |
+| desc | string  | 是否降序 | 不用填 |
+| -PF_x0oSHP6u- | -&nbsp;- | -&nbsp;- | -商圈过滤 &nbsp;- {color:#ff0000}-（已作废）-{color} |
+| -PF_5_VrVbqO-  | -String-  | -品牌筛选-  | -su8，7day- {color:#ff0000}-（已作废）-{color}  |
+| -coord- | -string- | -针扎经纬度坐标- | -型如：31.594275173611,120.29404025608。每个酒店下会返回跟这个坐标的距离- {color:#ff0000}{-}百度坐标{-}{color} |
+| -coordDist- | -int-  | -筛选， 距离coord多少距离以内 &nbsp; &nbsp;有时也指据用户坐标多少公里- | -和coord &nbsp; &nbsp;currCoord 配合使用- |
+| -retry- | -boolean- | -是否为重试- | -&nbsp;- |
+| -q- | -string- | -搜索词- | -如：西直门- |
+| platform | string | 分平台rank | 如iphone {color:#ff0000}80{color} , &nbsp;ipad 81, &nbsp;android 60, &nbsp;touch 91, padTouch 92 |
+| -isLow-  | -int- | -是否是低价频道(Tab"折扣高")- | {color:#ff0000}-&nbsp;（已作废）-{color} |
+| -isLr-  | -String-  | -逻辑回归rank-  | -C1(lr回归 + 不加产品策略),C2 (lr回归 + 产品策略) &nbsp;-{color:#ff0000}-（已作废）-{color}  |
+| uid  | String  | 个性化rank  | |
+| channel  | String | ios7版本空城市列表标志 | city 如果有这个参数说明是新版本，没有是老版本，新版本必须传坐标，与coord配合使用 |
+| -ids- | -String- | -浏览历史或酒店收藏使用，传多个seqInfo- | -浏览历史格式：ids={"beijing_city_1":{"browseTime":"123","relation":1}} &nbsp; ；酒店收藏格式：ids=hotelSeq1;cityRelation1,hotelSeq2;cityRelation2,...-  |
+| -isPlane-  | -int- | -是否是机火推酒店- | -1是机火支付成功推荐酒店页面- |
+| -isPreLm-  | -int- | -夜宵提前售卖- | -1夜宵提前售卖接口- |
+| userName  | String | 个性化rank  | userName  |
+| -lpricehstar- | -int- | -低价高星酒店筛选开关(Tab"低价高星")- | -0 无效 / 1 有效- {color:#ff0000}{*}-（-{*}{color}-&nbsp;-{color:#ff0000}{*}{-}此字段失效已经更替成rankInfo） （已作废）-{*}{color} |
+| -favortype- | -int- | -收藏/我的酒店 分支走向开关- | -0 收藏 / 1 我的酒店- |
+| -activity- | -int-  | -标示筛选酒店的属性，第5位为1表示筛选是大促的酒店，为0表示不筛选 ,第4位为1标示筛选是限时订购的酒店-  | -如16二进制位(10000)，第5位为1，表示筛选是大促的酒店，随着业务的扩展，其他的位将来也会使用，所以筛选哪个就把那一位置为1，其他的为0 ,如果有符合筛选，把其标示的位置为1就好-  |
+| -wapInfo-  | -int-  | -过滤，如果倒数第6位为1，则过滤显示五星红包酒店(-{color:#ff0000}{-}已下线{-}{color}-)- | -过滤，如果倒数第6位为1，则过滤显示五星红包酒店，倒数第11位是团购五折大促- |
+| -isQuick-  | -int- | -过滤- | -极速定{-}{color:#ff0000}-(已作废)-{color} |
+| has5starRed | int | 登录用户(userName非空)是否已经有五星红包 | 1 有/0 无 {color:#ff0000}0{color} |
+| notAddService  | int | 是否插入参与度 | 1不插/0插 默认{color:#ff0000}填1{color} |
+| -isHourlyRoom- | -int- | -是否为钟点房- | -0或不传为酒店列表，1为钟点房- |
+| -isIncludeExcess-  | -int- | -是否要将现付返现的价格加入rank逻辑- | -0或者不传-不算超返报价- 
+-1-超返报价加入排序- |
+| -isStudent- | -int- | -是否为学生- | -0或者不传代表不是- 
+-1代表是学生- |
+| logicBit | int | bit5==1(10000)开启Tab"拼团"过滤； | bit5==1拼团酒店 bit15==1现付五折，bit16==1预付直减五折， 
+bit17==1预付后返五折 bit24==1是机火用户 bit37==1团购五折报价 &nbsp;{color:#ff0000}0{color} |
+| {color:#ff0000}showAllCondition{color}  | {color:#ff0000}int{color} | {color:#ff0000}1/0{color} | {color:#ff0000}显示联动过滤条件，过滤酒店 0&nbsp;{color} |
+| -rankInfo- | -int- | -筛选酒店的标签信息，若第4位为1代表是【优选客栈】酒店（bit4=1如1000），若第5位为1代表是【情侣精选】酒店（bit5=1如10000）。- | -第一位代表是否是极速定酒店;第4位为{-}1代表是【优选客栈】酒店，第5位为1代表是【情侣精选】，后续会随着业务的增加增加其他位取值 |
+| {color:#ff0000}isNewUser{color} | int | 1/0 | 1.表示新用户，0或空表示非新用户 0 |
+| {color:#ff0000}{-}needConpon{-}{color} | -int- | -1/0- | -1.表示要星券低价，0或空表示不要星券低价- |
+| isLogin | int | 1/0 | 1.表示已经登录，0或空表示未登录 |
+| {color:#ff0000}{-}needTaxiCoupon{-}{color}  | -int- | -1/0- | -1.表示要车券报价，0或空表示不要- |
+| {color:#ff0000}{-}isTenPercent{-}{color} | -int- | -1(是)/0(否)- | -合成"一折大促"活动最低价开关- |
+| -isFirstOrder-  | -int- | -1(是)/0(否)-  | -是否是签到红包首单- |
+| -signInGiftMoney-  | -double- | -如50.0- | -签到红包金额-  |
+| -starblacklist- | -string-  | -beijing_city_1234,jinan_5678-  | -星券黑名单，所有城市的，用逗号分割- |
+| -fivePercent-  | -int- | -第1位：是否五折活动；第2位：是否授信；第3位：新老用户；第4位：是否机火用户；第5位：刷机用户；第6位：是否当日机火用户；第7位：有机火红包的用户- | -五折大促- {color:#ff0000}-&nbsp;（已作废）-{color} |
+| -isTouchReq-  | -int- | -1(是)/0(否)-  | -是否为touch请求（拼团活动，屏蔽touch侧请求在使用）- {color:#ff0000}-（已作废）-{color} |
+| isBnb | int | 1(是)/0(否)  | 手机端客栈民宿频道 &nbsp;0 |
+| -bnbQ- | -string- | -客栈评价类型标签- | -选中的标签- |
+| -bnbTags-  | -string- | -客栈静态标签筛选-  | 四合院，木屋（采用或逻辑） |
+| -starLevel-  | -int- | -1：低星酒店2：高星酒店3：高低星酒店；五折报价算入最低价- | -高低星的匹配规则配置在qconfig- {color:#ff0000}-(已作废)-{color} |
+| currCoord  | string  | 用户经纬度坐标  | 型如：31.594275173611,120.29404025608。每个酒店下会返回跟这个坐标的距离  |
+| nuomiTag | int | 1/0 | 取值为1时，需要取糯米的报价，取值为0或者没有传，不取糯米的报价 {color:#ff0000}&nbsp;0{color} |
+| browseHistory  | int | 1 | 取值为1代表是浏览历史请求, {color:#ff0000}0{color} |
+| model  | string | adr机器的手机型号 | adr机器的手机型号，例如小米2a  |
+| -minDistance-  | -int- | -红包显示距离最小值- | 500米 |
+| -maxDistance-  | -int- | -红包显示距离最大值-  | 5千米 &nbsp; 跟minDistance联合使用 &nbsp; 例如用户只能 &nbsp;500<用户当前距酒店距离<5000才能看到该活动报价，否则看不到 |
+| -tuijianBtn- | -String- | -酒店推荐类型- | -0: 相似酒店推荐；1: 附近酒店推荐；2: 榜单酒店推荐；3: ；4: 附近低价推荐；5: 距您最近推荐；6：今日特惠附近低价；7今日特惠附近精选- |
+| onlyShowPrice  | String | 是否只显示无线可订有报价的酒店 | {color:#ff0000}1{color} （是） and 0 （否） |
+| -tuijian-  | -String- | -酒店推荐酒店- | -HOTEL_TO_HOTEL- |
+| {color:#ff0000}{-}isIncludeExcess{-}{color}  | -String- | -超返用户- | -&nbsp;- |
+| {color:#ff0000}{-}isVoiceList{-}{color}  | -String- | -语音搜索- | -&nbsp;- |
+| {color:#ff0000}{-}userBit{-}{color} | -String- | -用户身份包含各种新增用户身份透传给hprice、-  | {color:#ff0000}{-}userActiveRole.userBit{-}{color} |
+| -userIdentityBit-  | -long- | -用户身份bit位- | -1 五折用户； 2 五折授信用户；3 五折新用户；4 机火用户；- 
+-5 非五折用户；6机火当日新用户；7 机火红包用户- |
+| -tuijianSeq- | -String- | -宿主seq- | -beijing_city_1- |
+| {color:#000000}{-}abtest{-}{color} | -String- | -客户端是否安装了美团，艺龙客户端，用于拉取不同的报价-  | -直接透传kylin的json参数- |
+| -hourRec- | -int- | -钟点房机火订单推荐专用- | -&nbsp;- |
+| -commentScore-  | -double- | -用户评分筛选- | -commentScore=1.0,2.4(闭区间)-  |
+| -activityIds-  | -String- | -2011 (百城大促代金券)- | -代金券筛选字段- |
